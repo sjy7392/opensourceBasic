@@ -16,5 +16,8 @@ class VideoApp:
         self.canvas.pack()
 
         self.btn_snapshot = tk.Button(
-            window, text="Snapshot", width=50, command=self.snapshot)
+            window, text="Snapshot/CSV", width=50, command=self.snapshot, relief="flat")
         self.btn_snapshot.pack(anchor=tk.CENTER, expand=True)
+
+        self.window.resizable(False, False)
+        self.window.mainloop()
