@@ -1,4 +1,5 @@
 import tkinter as tk
+import cv2
 from PIL import Image, ImageTk
 
 
@@ -13,3 +14,7 @@ class VideoApp:
         self.canvas = tk.Canvas(window, width=self.vid.get(
             cv2.CAP_PROP_FRAME_WIDTH), height=self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT))
         self.canvas.pack()
+
+        self.btn_snapshot = tk.Button(
+            window, text="Snapshot", width=50, command=self.snapshot)
+        self.btn_snapshot.pack(anchor=tk.CENTER, expand=True)
