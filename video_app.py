@@ -19,5 +19,8 @@ class VideoApp:
             window, text="Snapshot/CSV", width=50, command=self.snapshot, relief="flat")
         self.btn_snapshot.pack(anchor=tk.CENTER, expand=True)
 
+        self.delay = 15
+        self.update()
+
         self.window.resizable(False, False)
         self.window.mainloop()
