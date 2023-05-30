@@ -1,9 +1,10 @@
 import tkinter as tk
 import cv2
 from PIL import Image, ImageTk
-
+import datetime
 
 class VideoApp:
+    #비디오 소스 및 gui 요소 초기화
     def __init__(self, window, window_title, video_source=0, face_net=None, age_net=None, gender_net=None):
         self.window = window
         self.window.title(window_title)
@@ -24,3 +25,14 @@ class VideoApp:
 
         self.window.resizable(False, False)
         self.window.mainloop()
+
+    #스냅샷 버튼을 클릭 시, 현재 프레임에서 얼굴 분석 수행
+    def snapshot
+
+    #비디오 프레임을 업데이트하고 GUI 창에 표시
+    def update(self):
+        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.date_label.config(text=current_time)
+
+    #앱 종료 시 호출되는 함수
+    def destroy
