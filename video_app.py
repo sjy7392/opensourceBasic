@@ -36,3 +36,9 @@ class VideoApp:
 
     #앱 종료 시 호출되는 함수
     def destroy
+
+def start_gui(video_source):
+    VideoApp(tk.Tk(), "Tkinter and OpenCV", video_source=video_source)
+
+def main_loop(video_source):
+    start_gui(video_source)
