@@ -1,7 +1,7 @@
 import tkinter as tk
 import cv2
-from PIL import Image, ImageTk
 import datetime
+from PIL import Image, ImageTk
 
 class VideoApp:
     #비디오 소스 및 gui 요소 초기화
