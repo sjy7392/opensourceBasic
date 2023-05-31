@@ -1,6 +1,6 @@
 import cv2
-import time
 import csv
+import time
 
 
 def save_snapshot(result_img, data):
