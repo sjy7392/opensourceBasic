@@ -49,6 +49,10 @@ class VideoApp:
             frame = cv2.resize(frame, (640, 480))
             image = Image.fromarray(frame)
             photo = ImageTk.PhotoImage(image=image)
+            self.canvas.create_image(0, 0, image=photo, anchor=tk.NW)
+            self.canvas.photo = photo  # 새로운 줄: photo 객체를 유지하기 위해 참조
+
+        self.window.after(self.delay, self.update)
 
     #앱 종료 시 호출되는 함수
     def destroy(self):
