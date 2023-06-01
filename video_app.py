@@ -46,6 +46,9 @@ class VideoApp:
         ret, frame = self.vid.read()
         if ret:
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frame = cv2.resize(frame, (640, 480))
+            image = Image.fromarray(frame)
+            photo = ImageTk.PhotoImage(image=image)
 
     #앱 종료 시 호출되는 함수
     def destroy(self):
