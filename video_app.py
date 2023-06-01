@@ -22,6 +22,9 @@ class VideoApp:
         self.btn_csv = tk.Button(window, text="CSV 저장", width=50, command=self.save_csv, relief="flat")
         self.btn_csv.pack(anchor=tk.CENTER, expand=True)
 
+        self.btn_record = tk.Button(window, text="비디오 녹화", width=50, command=self.record_video, relief="flat")
+        self.btn_record.pack(anchor=tk.CENTER, expand=True)
+
         self.delay = 15
         self.update()
 
