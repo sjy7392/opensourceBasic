@@ -1,8 +1,8 @@
-import tkinter as tk
 import threading
 import argparse
 import cv2
 from video_app import VideoApp
+import tkinter as tk
 
 # Global variables
 face_proto = "opencv_face_detector.pbtxt"
@@ -28,5 +28,10 @@ def main():
     video_source = args.image if args.image else 0
 
     # Start the main loop in a separate thread
-    threading.Thread(target=VideoApp, args=(
-        tk.Tk(), "Tkinter and OpenCV", video_source)).start()
+    app = VideoApp(tk.Tk(), "Tkinter and OpenCV",
+                   video_source, face_net, age_net, gender_net)
+    app.window.mainloop()
+
+
+if __name__ == "__main__":
+    main()
