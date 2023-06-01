@@ -26,6 +26,11 @@ class VideoApp:
         self.btn_record.pack(anchor=tk.CENTER, expand=True)
 
         self.delay = 15
+        self.delay = 15
+        self.face_net = face_net
+        self.age_net = age_net
+        self.gender_net = gender_net
+        self.update()
         self.update()
 
         self.window.resizable(False, False)
