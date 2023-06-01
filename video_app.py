@@ -16,9 +16,11 @@ class VideoApp:
             cv2.CAP_PROP_FRAME_WIDTH), height=self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT))
         self.canvas.pack()
 
-        self.btn_snapshot = tk.Button(
-            window, text="Snapshot/CSV", width=50, command=self.snapshot, relief="flat")
+        self.btn_snapshot = tk.Button(window, text="캡처", width=50, command=self.capture_snapshot, relief="flat")
         self.btn_snapshot.pack(anchor=tk.CENTER, expand=True)
+
+        self.btn_csv = tk.Button(window, text="CSV 저장", width=50, command=self.save_csv, relief="flat")
+        self.btn_csv.pack(anchor=tk.CENTER, expand=True)
 
         self.delay = 15
         self.update()
