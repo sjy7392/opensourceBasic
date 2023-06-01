@@ -21,11 +21,17 @@ gender_net = cv2.dnn.readNet(gender_model, gender_proto)
 def main():
     # Parse the arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('--image')
+    parser.add_argument('--image', help='Path to the image file')
+    parser.add_argument('--video', help='Path to the video file')
     args = parser.parse_args()
 
     # If an image file is given, use it as the video source. Otherwise, use the webcam.
-    video_source = args.image if args.image else 0
+    if args.image:
+        video_source = args.image
+    elif args.video:
+        video_source = args.video
+    else:
+        video_source = 0
 
     # Start the main loop in a separate thread
     app = VideoApp(tk.Tk(), "Tkinter and OpenCV",
