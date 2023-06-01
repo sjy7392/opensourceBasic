@@ -14,3 +14,7 @@ def save_snapshot(result_img, data):
         writer = csv.writer(f)
         writer.writerow(["Gender", "Age"])
         writer.writerows(data)
+
+    print("Snapshot saved:", image_path)
+    print("CSV file saved:", csv_path)
+    print("Timestamp:", timestamp)
