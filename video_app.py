@@ -54,6 +54,11 @@ class VideoApp:
 
         self.window.after(self.delay, self.update)
 
+    def save_csv(self):
+
+    def start_video_recording(self):
+        record_video(self.vid)    
+
     #앱 종료 시 호출되는 함수
     def destroy(self):
         self.vid.release()
