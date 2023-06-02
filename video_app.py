@@ -55,6 +55,10 @@ class VideoApp:
         self.window.after(self.delay, self.update)
 
     def save_csv(self):
+        ret, frame = self.vid.read()
+        if ret:
+            result_img, data = process_frame(
+                self.face_net, self.age_net, self.gender_net, frame)
 
     def start_video_recording(self):
         record_video(self.vid)    
