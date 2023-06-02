@@ -2,7 +2,6 @@ import threading
 import argparse
 import cv2
 from video_app import VideoApp
-import tkinter as tk
 
 # Global variables
 face_proto = "opencv_face_detector.pbtxt"
@@ -21,23 +20,13 @@ gender_net = cv2.dnn.readNet(gender_model, gender_proto)
 def main():
     # Parse the arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('--image', help='Path to the image file')
-    parser.add_argument('--video', help='Path to the video file')
+    parser.add_argument('--image')
     args = parser.parse_args()
 
     # If an image file is given, use it as the video source. Otherwise, use the webcam.
-    if args.image:
-        video_source = args.image
-    elif args.video:
-        video_source = args.video
-    else:
-        video_source = 0
+    video_source = args.image if args.image else 0
 
     # Start the main loop in a separate thread
     app = VideoApp(tk.Tk(), "Tkinter and OpenCV",
                    video_source, face_net, age_net, gender_net)
     app.window.mainloop()
-
-
-if __name__ == "__main__":
-    main()
