@@ -55,10 +55,7 @@ class VideoApp:
         self.window.after(self.delay, self.update)
 
     def save_csv(self):
-        ret, frame = self.vid.read()
-        if ret:
-            result_img, data = process_frame(
-                self.face_net, self.age_net, self.gender_net, frame)
+        
 
     def start_video_recording(self):
         record_video(self.vid)    
@@ -68,8 +65,10 @@ class VideoApp:
         self.vid.release()
         self.window.destroy()
 
-def start_gui(video_source):
-    VideoApp(tk.Tk(), "Tkinter and OpenCV", video_source=video_source)
+    def start_gui(video_source):
+        window = tk.Tk()
+        app = VideoApp(window, "Tkinter and OpenCV", video_source=video_source)
+        window.mainloop()
 
-def main_loop(video_source):
-    start_gui(video_source)
+    def main_loop(video_source):
+        start_gui(video_source)
