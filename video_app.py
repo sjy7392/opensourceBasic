@@ -55,7 +55,10 @@ class VideoApp:
         self.window.after(self.delay, self.update)
 
     def save_csv(self):
-        
+        ret, frame = self.vid.read()
+    if ret:
+        cv2.imwrite("frame.jpg", frame)  # 현재 프레임을 파일로 저장
+        print("프레임 저장 완료")
 
     def start_video_recording(self):
         record_video(self.vid)    
