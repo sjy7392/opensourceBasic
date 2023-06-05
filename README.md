@@ -25,7 +25,6 @@
 - OpenCV 설치: pip install opencv-python
 - argparse 설치: pip install argparse
 
-
 ## 의존성
 - OpenCv
 - 추가 예정
@@ -33,17 +32,16 @@
 ## 사용 방법
 - 웹캠:
 python <실행 파일명>
-python main.py
+`python main.py`
 - 사진:
-python <실행 파일명> --image <이미지 파일>
-python main.py --image girl1.jpg
+`python <실행 파일명> --image <이미지 파일>`
+`python main.py --image girl1.jpg`
 중단 방법: `Ctrl + C`
 
 ## 라이선스 및 연락처
 ### 라이선스
-MIT License
+
 
 ### 연락처
-- 손지연
-- 이메일: sjy7392@naver.com
-
+- 손지연(2020039104), 김연수(2020039097)
+- 이메일: sjy7392@naver.com, yeonkiiim@gmail.com
