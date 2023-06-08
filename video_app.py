@@ -2,6 +2,7 @@ import tkinter as tk
 import cv2
 import datetime
 from PIL import Image, ImageTk
+from face_detection import process_frame
 from save_snapshot import save_snapshot
 
 class VideoApp:
@@ -40,8 +41,10 @@ class VideoApp:
         
     #비디오 프레임을 업데이트하고 GUI 창에 표시
     def update(self):
-        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        self.date_label.config(text=current_time)
+        ret, frame = self.vid.read()
+        if ret:
+            self.photo = ImageTk.PhotoImage(image=Image.fromarray(
+                process_frame(self.face_net, self.age_net, self.gender_net, frame)[0]))
 
         ret, frame = self.vid.read()
         if ret:
