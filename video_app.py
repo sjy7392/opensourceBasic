@@ -38,6 +38,11 @@ class VideoApp:
 
     #스냅샷 버튼을 클릭 시, 현재 프레임에서 얼굴 분석 수행
     def snapshot(self):
+        ret, frame = self.vid.read()
+        if ret:
+            result_img, data = process_frame(
+                self.face_net, self.age_net, self.gender_net, frame)
+            save_snapshot(result_img, data)
         
     #비디오 프레임을 업데이트하고 GUI 창에 표시
     def update(self):
@@ -53,9 +58,6 @@ class VideoApp:
     if ret:
         cv2.imwrite("frame.jpg", frame)  # 현재 프레임을 파일로 저장
         print("프레임 저장 완료")
-
-    def start_video_recording(self):
-        record_video(self.vid)    
 
     #앱 종료 시 호출되는 함수
     def destroy(self):
