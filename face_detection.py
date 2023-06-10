@@ -56,3 +56,5 @@ def process_frame(face_net, age_net, gender_net, frame, padding=20):
             face_box[0], face_box[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 2, cv2.LINE_AA)
 
         data.append((gender, age))
+
+    return cv2.cvtColor(result_img, cv2.COLOR_BGR2RGB), data
