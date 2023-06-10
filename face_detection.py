@@ -23,3 +23,6 @@ def highlight_face(net, frame, conf_threshold=0.7):
             x2 = int(detections[0, 0, i, 5]*frame_width)
             y2 = int(detections[0, 0, i, 6]*frame_height)
             face_boxes.append([x1, y1, x2, y2])
+            cv2.rectangle(frame_opencv_dnn, (x1, y1), (x2, y2),
+                          (0, 255, 0), int(round(frame_height/150)), 8)
+    return frame_opencv_dnn, face_boxes
